@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Web Sitem</title>
+    
+    <style>
+        /* CSS: Sayfanın görünümü burada ayarlandı */
+        body {
+            font-family: Arial, sans-serif; /* Standart yazı tipi */
+            background-color: #e9e9e9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sayfanın ortasındaki ana kutu */
+        .ana-cerceve {
+            width: 80%;
+            background-color: white;
+            margin: 20px auto; /* Ortalamak için */
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 5px 5px 10px #888888;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Menü linkleri */
+        .menu {
+            text-align: center;
+            padding: 15px;
+            background-color: #ddd;
+            margin-top: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            color: red; /* Üzerine gelince renk değişsin */
+        }
+
+        .icerik {
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .profil-foto {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #333;
+            border-radius: 50%; /* Yuvarlak resim */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .kutu {
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #005f7f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ana-cerceve">
+        <header>
+            <h1>Adın Soyadın - CV</h1>
+            <p>Bilgisayar Programcılığı / Öğrenci</p>
+        </header>
+
+        <div class="menu">
+            <a href="#ozgecmis">Özgeçmiş</a>
+            <a href="#dersler">Dersler</a>
+            <a href="#iletisim">İletişim</a>
+        </div>
+
+        <div class="icerik">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <p>Şu anki tarih ve saati öğrenmek için butona basın:</p>
+                <button onclick="tarihiGoster()">Tarihi Göster</button>
+                <p id="tarihAlani" style="color: red; font-weight: bold;"></p>
+            </div>
+
+            <hr>
+
+            <div id="ozgecmis" class="kutu">
+                <img src="https://via.placeholder.com/150" alt="Profil Resmi" class="profil-foto">
+                <h2 style="text-align: center;">Hakkımda</h2>
+                <p>Merhaba, ben Adın Soyadın. Üniversite öğrencisiyim. Yazılım geliştirmeye ilgi duyuyorum. Özellikle C# ve Web Tasarım konularında kendimi geliştirmeye çalışıyorum. Bu web sitesini dönem ödevim için hazırladım.</p>
+                
+                <h3>Bildiğim Diller</h3>
+                <ul>
+                    <li>C# (Orta Seviye)</li>
+                    <li>HTML & CSS (Temel Seviye)</li>
+                    <li>SQL Veritabanı</li>
+                </ul>
+            </div>
+
+            <div id="dersler" class="kutu">
+                <h2>Aldığım Dersler</h2>
+                <table border="1" style="width: 100%; border-collapse: collapse;">
+                    <tr style="background-color: #ddd;">
+                        <th>Ders Adı</th>
+                        <th>Durum</th>
+                    </tr>
+                    <tr>
+                        <td>Görsel Programlama (C#)</td>
+                        <td>Devam Ediyor</td>
+                    </tr>
+                    <tr>
+                        <td>İnternet Programcılığı</td>
+                        <td>Devam Ediyor</td>
+                    </tr>
+                    <tr>
+                        <td>Veri Tabanı Yönetimi</td>
+                        <td>Tamamlandı</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="iletisim" class="kutu">
+                <h2>İletişim Formu</h2>
+                <p>Bana mesaj göndermek için formu doldurun:</p>
+                <form onsubmit="mesajGonder(); return false;">
+                    <label>Adınız:</label><br>
+                    <input type="text" required style="width: 50%; padding: 5px;"><br><br>
+                    
+                    <label>Mesajınız:</label><br>
+                    <textarea required style="width: 50%; height: 80px;"></textarea><br><br>
+                    
+                    <button type="submit">Gönder</button>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            Adın Soyadın &copy; 2025 | Tüm hakları saklıdır.
+        </footer>
+    </div>
+
+    <script>
+        // Örnek 1: Tarih ve Saati ekrana yazdıran fonksiyon
+        function tarihiGoster() {
+            var tarih = new Date();
+            document.getElementById("tarihAlani").innerHTML = tarih;
+        }
+
+        // Örnek 2: Form gönderildiğinde uyarı veren fonksiyon
+        function mesajGonder() {
+            alert("Mesajınız başarıyla gönderildi! (Bu bir denemedir)");
+        }
+    </script>
+
+</body>
+</html>
